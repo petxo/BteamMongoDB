@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractMongoEntity.cs" />
+    <Compile Include="IMongoEntity.cs" />
     <Compile Include="Config\ConnectionCredentials.cs" />
     <Compile Include="Config\ConnectionExtendedConfig.cs" />
     <Compile Include="Config\ConnectionExtendedListConfig.cs" />

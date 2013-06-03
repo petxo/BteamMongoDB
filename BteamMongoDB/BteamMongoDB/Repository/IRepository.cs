@@ -10,7 +10,7 @@ namespace BteamMongoDB.Repository
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <typeparam name="TId">The type of the id.</typeparam>
-    public interface IRepository<TEntity, TId> : IDisposable where TEntity : AbstractMongoEntity<TId>
+    public interface IRepository<TEntity, TId> : IDisposable where TEntity : IMongoEntity<TId>
         where TId : new()
     {
         /// <summary>

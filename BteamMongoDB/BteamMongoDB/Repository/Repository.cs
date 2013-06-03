@@ -17,7 +17,7 @@ namespace BteamMongoDB.Repository
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <typeparam name="TId">The type of the id.</typeparam>
     public class Repository<TEntity, TId> : IRepository<TEntity, TId>
-        where TEntity : AbstractMongoEntity<TId>
+        where TEntity : IMongoEntity<TId>
         where TId : new()
     {
         protected readonly IMongoHelper _mongoHelper;

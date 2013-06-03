@@ -5,7 +5,7 @@ using MongoDB.Driver.Builders;
 
 namespace BteamMongoDB.Repository
 {
-    internal class ModifierExpression<TEntity, TId> : IModifierExpression<TEntity, TId> where TEntity : AbstractMongoEntity<TId>
+    internal class ModifierExpression<TEntity, TId> : IModifierExpression<TEntity, TId> where TEntity : IMongoEntity<TId>
     {
         private readonly UpdateBuilder updateBuilder;
 
