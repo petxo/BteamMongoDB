@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Reflection;
 using System.Threading;
 using BteamMongoDB.Config;
+using log4net;
 using log4net.Core;
 
 namespace BteamMongoDB
@@ -63,7 +65,7 @@ namespace BteamMongoDB
                                        PoolSize = connection.PoolSize
                                    };
 
-                _mongoHelpers.Add(connection.Name, new MongoHelper(settings));
+                _mongoHelpers.Add(connection.Name, new MongoHelper(settings) { Logger = LogManager.GetLogger(GetType()) });
             }
         }
 
@@ -101,7 +103,7 @@ namespace BteamMongoDB
                 }
 
 
-                _mongoHelpers.Add(connection.Name, new MongoHelper(settings));
+                _mongoHelpers.Add(connection.Name, new MongoHelper(settings) { Logger = LogManager.GetLogger(GetType()) });
             }
         }
 
@@ -118,7 +120,7 @@ namespace BteamMongoDB
             if (lockTaken)
             {
                 if (!_mongoHelpers.ContainsKey(key))
-                    _mongoHelpers.Add(key, new MongoHelper(mongoSettings) {  });
+                    _mongoHelpers.Add(key, new MongoHelper(mongoSettings) { Logger  = LogManager.GetLogger(GetType())});
 
                 _spinLock.Exit();
             }
